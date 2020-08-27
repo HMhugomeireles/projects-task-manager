@@ -1,0 +1,14 @@
+.container-error,
+.container-success {
+  padding: 10px;
+  margin: 10px 0;
+  color: white;
+}
+
+.container-error {
+  background: rgb(199, 1, 1);
+}
+
+.container-success {
+  background: rgb(2, 175, 45);
+}

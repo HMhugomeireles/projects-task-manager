@@ -1,0 +1,31 @@
+.container {
+  width: 320px;
+  max-width: 100%;
+  border: 1px solid var(--color-button-grey);
+  background: var(--color-button-white);
+  margin: 10px;
+}
+
+.containerHeader {
+  background: var(--color-button-light-grey);
+  color: var(--color-button-dark-grey);
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.containerBody {
+  font-size: 0.975rem;
+  padding: 5px;
+  margin: 10px;
+}
+
+.containerBody > ul {
+  list-style: none;
+}
+
+.containerBody > ul,
+.containerBody > ul > li {
+  margin: 0;
+  padding: 0;
+}

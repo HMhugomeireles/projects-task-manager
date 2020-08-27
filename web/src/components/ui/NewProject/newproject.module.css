@@ -1,0 +1,27 @@
+.container {
+  width: 320px;
+  margin: 10px;
+  background: var(--color-button-light-grey);
+  color: var(--color-button-dark-grey);
+}
+
+.space {
+  margin: 10px;
+  padding: 2.25rem 0;
+}
+
+.btn {
+  width: 100%;
+  background: var(--color-button-blue);
+  color: var(--color-button-white);
+}
+
+.input {
+  width: 100%;
+  padding: 7px 10px;
+  margin: 10px 0;
+}
+
+.formCreate {
+  width: 100%;
+}

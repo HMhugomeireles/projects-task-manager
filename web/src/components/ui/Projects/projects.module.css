@@ -1,0 +1,8 @@
+.projectList {
+  list-style: none;
+}
+
+.projectList > li {
+  margin: 0;
+  padding: 0;
+}

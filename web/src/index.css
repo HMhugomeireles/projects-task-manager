@@ -1,0 +1,30 @@
+:root {
+  --color-button-blue: #409df3;
+  --color-button-green: #16b916;
+  --color-button-white: #fff;
+  --color-button-grey: #e4e4e4;
+  --color-button-light-grey: #f8f8f8;
+  --color-button-dark-grey: #333;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.25rem;
+  background: #f1f1f1;
+}
+
+button {
+  border: none;
+  padding: 5px 10px;
+}
