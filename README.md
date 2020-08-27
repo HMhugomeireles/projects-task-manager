@@ -29,3 +29,21 @@ Requirements:
     Extras:
 14. Build tools (e.g. grunt or gulp)
 15. Unit tests
+
+## Run Project
+
+### Backend
+
+cd backend
+npm install
+npm start
+
+http://localhost:4444
+
+### Frontend
+
+cd web
+npm install
+npm start
+
+http://localhost:3000
