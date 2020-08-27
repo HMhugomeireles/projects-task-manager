@@ -34,16 +34,16 @@ Requirements:
 
 ### Backend
 
-cd backend
-npm install
-npm start
+1. cd backend
+2. npm install
+3. npm start
 
 http://localhost:4444
 
 ### Frontend
 
-cd web
-npm install
-npm start
+1. cd web
+2. npm install
+3. npm start
 
 http://localhost:3000
