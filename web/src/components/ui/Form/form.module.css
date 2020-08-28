@@ -1,9 +1,26 @@
 .content {
-  width: 50%;
   max-width: 320px;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
+  border-radius: 8px;
 
-  border: 1px solid var(--color-button-grey);
-  background: var(--color-button-white);
+  background: var(--color-mid-grey);
+  box-shadow: 1px 2px 11px var(--color-dark-hard-grey);
+
+  animation: entryLogin 1.7s;
+}
+
+@keyframes entryLogin {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.07);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

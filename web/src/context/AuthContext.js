@@ -36,7 +36,7 @@ export function AuthenticationProvider({ children }) {
   async function createUser(user) {
     const response = await axios({
       method: "PUT",
-      url: Api.user.registration,
+      url: Api.user.registration.url,
       data: user,
     });
     return response;

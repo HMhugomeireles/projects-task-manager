@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/ui/Layout";
-import DashboardContainer from "../components/container/DashboardContainer";
+import Layout from "../../components/ui/Layout";
+import DashboardContainer from "../../components/container/DashboardContainer";
 
 function Dashboard() {
   return (
