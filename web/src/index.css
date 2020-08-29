@@ -6,6 +6,8 @@
   --color-button-light-grey: #f8f8f8;
   --color-button-dark-grey: #333;
 
+  --color-brand: #dfdc40;
+
   --color-dark-hard-grey: #0a0a0a;
   --color-dark-grey: #121212;
   --color-mid-grey: #1f1f1f;
@@ -19,6 +21,9 @@
   --color-dark-red: #b90f0f;
   --color-dark-green: #37b90f;
   --color-dark-blue: #0e5aa1;
+
+  --color-text-primary: var(--color-light-grey);
+  --color-text-secondary: var(--color-light-mid-grey);
 }
 
 * {

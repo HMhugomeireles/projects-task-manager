@@ -7,10 +7,22 @@
   justify-content: center;
 }
 
-.title {
-  text-align: center;
+.brandHeader {
+  width: 320px;
+  margin: 15px 0;
+}
+
+.brandTitle {
   font-size: 2.3rem;
-  margin: 25px 0;
+}
+
+.brandTitle span {
+  color: var(--color-brand);
+}
+
+.brandP {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
 }
 
 @media screen and (min-width: 1000px) {

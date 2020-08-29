@@ -37,7 +37,7 @@ function DashboardContainer() {
         saveToken(response.data.newToken);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [saveToken, user.token]);
 
   return (
     <div>

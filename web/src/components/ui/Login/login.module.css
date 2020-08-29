@@ -3,7 +3,14 @@
 }
 
 .btn {
-  background: var(--color-dark-blue);
-  color: var(--color-button-white);
+  background: transparent;
   width: 100%;
+  transition: 0.2s ease-in-out;
+  border: 2px solid var(--color-dark-blue);
+  color: var(--color-button-white);
+}
+
+.btn:hover {
+  background: var(--color-dark-blue);
+  filter: brightness(1.75);
 }

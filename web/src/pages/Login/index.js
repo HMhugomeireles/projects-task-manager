@@ -15,7 +15,14 @@ function Login() {
     <Layout>
       {isAuthenticated() && <Redirect to="/dashboard" />}
       <div className={loginStyles.container}>
-        <h1 className={loginStyles.title}>Personal Projects task Management</h1>
+        <div className={loginStyles.brandHeader}>
+          <h1 className={loginStyles.brandTitle}>
+            Pro<span>Task</span>
+          </h1>
+          <p className={loginStyles.brandP}>
+            Personal Projects task Management
+          </p>
+        </div>
         <LoginContainer />
         <CreateAccountContainer />
       </div>

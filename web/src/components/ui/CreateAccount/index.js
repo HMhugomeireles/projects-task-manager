@@ -59,7 +59,7 @@ function CreateAccount(props) {
       ) : null}
 
       <Button className={createAccount.btn} buttonType="submit">
-        Login
+        Create
       </Button>
     </Form>
   );
