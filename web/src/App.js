@@ -1,12 +1,15 @@
 import React from "react";
-import { AuthenticationProvider } from "./context/AuthContext";
+import { AuthenticationProvider } from "./services/context/AuthContext";
+import { StatusContextProvider } from "./services/context/StatusContext";
 import RouterHandler from "./router";
 
 function App() {
   return (
-    <AuthenticationProvider>
-      <RouterHandler />
-    </AuthenticationProvider>
+    <StatusContextProvider>
+      <AuthenticationProvider>
+        <RouterHandler />
+      </AuthenticationProvider>
+    </StatusContextProvider>
   );
 }
 

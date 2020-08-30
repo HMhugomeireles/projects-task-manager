@@ -1,9 +1,14 @@
 // * Initial State Object
 
 export const INITIAL_USERS = {
-  loading: false,
   user: undefined,
   token: undefined,
+  isTokenSecure: false,
+  isLogged: false,
+  status: {
+    type: "ok",
+    error: undefined,
+  },
 };
 
 // * Action Types

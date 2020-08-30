@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { AuthenticationContext } from "../../../context/AuthContext";
+import { AuthenticationContext } from "../../../services/context/AuthContext";
 
 import Login from "../../ui/Login";
 
@@ -19,18 +19,9 @@ function LoginContainer() {
   async function handleLogin(event) {
     event.preventDefault();
 
-    const auth = await authenticationUser(loginForm).catch((err) =>
-      console.log("Error authentication", err)
-    );
+    // TODO need todo input validation
 
-    if (typeof auth === "string") {
-      setMessageError(auth);
-      return;
-    }
-
-    if (auth === true) {
-      history.push("/dashboard");
-    }
+    authenticationUser(loginForm);
   }
 
   function handleInputChange(event) {

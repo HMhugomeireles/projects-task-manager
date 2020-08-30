@@ -10,7 +10,11 @@ const UserActionsStrategy = {
 
 export const UsersReducer = (state, action) => {
   const strategy =
-    UserActionsStrategy[action.type] ?? UserActionsStrategy.DEFAULT;
+    UserActionsStrategy[action.type] === undefined
+      ? UserActionsStrategy.DEFAULT
+      : UserActionsStrategy[action.type];
+
+  console.log(strategy);
 
   return strategy(state, action);
 };

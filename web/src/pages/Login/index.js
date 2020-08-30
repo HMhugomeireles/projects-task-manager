@@ -1,7 +1,7 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
 
-import { AuthenticationContext } from "../../context/AuthContext";
+import { AuthenticationContext } from "../../services/context/AuthContext";
 import LoginContainer from "../../components/container/LoginContainer";
 import CreateAccountContainer from "../../components/container/CreateAccountContainer";
 
