@@ -1,0 +1,17 @@
+.projectList {
+  list-style: none;
+
+}
+
+.projectList>li {
+  margin: 0;
+  padding: 0;
+
+}
+
+.taskRow {
+  padding: 5px;
+  background: var(--color-orange);
+  color: var(--color-dark-grey);
+  margin: 2px 0;
+}

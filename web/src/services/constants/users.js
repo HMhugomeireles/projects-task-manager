@@ -10,11 +10,3 @@ export const INITIAL_USERS = {
     error: undefined,
   },
 };
-
-// * Action Types
-
-export const UserActionsTypes = {
-  LOGIN: "LOGIN",
-  LOGOUT: "LOGOUT",
-  CREATE_ACCOUNT: "CREATE_ACCOUNT",
-};

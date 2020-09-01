@@ -1,0 +1,12 @@
+.container {
+  padding: 1.5rem;
+
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 2rem;
+
+  background: var(--color-mid-grey);
+  box-shadow: 1px 2px 11px var(--color-dark-hard-grey);
+
+  display: flex;
+  justify-content: space-between;
+}

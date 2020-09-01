@@ -1,5 +1,5 @@
 import React from "react";
-import CreateAccount from "../../ui/CreateAccount";
+import CreateAccount from "../../ui/Composed/CreateAccount";
 import { AuthenticationContext } from "../../../services/context/AuthContext";
 
 function CreateAccountContainer() {

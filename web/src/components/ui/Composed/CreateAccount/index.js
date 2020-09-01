@@ -1,11 +1,11 @@
 import React from "react";
 
-import Form from "../Form";
-import Input from "../Input";
-import Button from "../Button";
+import Form from "../../Form";
+import Input from "../../Input";
+import Button from "../../Button";
 
 import createAccount from "./createAccount.module.css";
-import Message from "../Message/index";
+import Message from "../../Message/index";
 
 function CreateAccount(props) {
   return (

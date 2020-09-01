@@ -14,14 +14,14 @@ function NewProject(props) {
         boxStyles={newproject.formCreate}
       >
         <div className={newproject.space}>
-          <h2 style={{ textAlign: "center" }}>Create a new project</h2>
+          <h2 className={newproject.title}>Create a new project</h2>
           <Input
             details={{
               className: newproject.input,
               type: "text",
               name: "title",
               value: props.dataInput.title,
-              placeholder: "Project name",
+              placeholder: "New project name",
               actions: {
                 handleInputChange: props.actions.handleInputChange,
               },

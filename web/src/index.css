@@ -11,12 +11,14 @@
   --color-dark-hard-grey: #0a0a0a;
   --color-dark-grey: #121212;
   --color-mid-grey: #1f1f1f;
+  --color-normal-grey: #272727;
   --color-light-mid-grey: #878787;
   --color-light-grey: #dfdfdf;
 
   --color-red: #b90f0f;
   --color-green: #37b90f;
   --color-blue: #0f67b9;
+  --color-orange: #daa805;
 
   --color-dark-red: #b90f0f;
   --color-dark-green: #37b90f;
@@ -43,6 +45,15 @@ body {
   background: var(--color-dark-grey);
   color: var(--color-light-grey);
 }
+
+h1,
+h2,
+h3,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
 
 button {
   border: none;

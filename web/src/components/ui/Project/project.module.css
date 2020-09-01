@@ -1,31 +1,32 @@
 .container {
   width: 320px;
   max-width: 100%;
-  border: 1px solid var(--color-button-grey);
-  background: var(--color-button-white);
+
   margin: 10px;
+  border-radius: 15px;
+
+  background: var(--color-mid-grey);
+  box-shadow: 1px 2px 11px var(--color-dark-hard-grey);
 }
 
 .containerHeader {
-  background: var(--color-button-light-grey);
-  color: var(--color-button-dark-grey);
-  font-size: 1rem;
+  background: var(--color-mid-grey);
+  color: var(--color-light-grey);
+  box-shadow: 1px 1px 4px var(--color-dark-hard-grey);
+  font-size: 1.4rem;
   font-weight: bold;
-  padding: 5px;
+  padding: 15px;
+  border-radius: 15px 15px 0 0;
+  text-transform: capitalize;
 }
 
 .containerBody {
   font-size: 0.975rem;
-  padding: 5px;
+  padding: 10px;
   margin: 10px;
+  color: var(--color-light-mid-grey);
 }
 
-.containerBody > ul {
+.containerBody>ul {
   list-style: none;
-}
-
-.containerBody > ul,
-.containerBody > ul > li {
-  margin: 0;
-  padding: 0;
 }

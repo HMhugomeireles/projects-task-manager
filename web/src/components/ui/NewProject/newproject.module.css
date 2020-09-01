@@ -1,25 +1,38 @@
 .container {
-  width: 320px;
+  width: 80%;
   margin: 10px;
-  background: var(--color-button-light-grey);
-  color: var(--color-button-dark-grey);
+  padding: 0 20px;
+  border-radius: 15px;
+
+
+
+  background: var(--color-mid-grey);
+  box-shadow: 1px 2px 11px var(--color-dark-hard-grey);
 }
 
 .space {
   margin: 10px;
-  padding: 2.25rem 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  flex-grow: 1;
 }
 
 .btn {
-  width: 100%;
-  background: var(--color-button-blue);
+  width: 20%;
+  background: var(--color-dark-green);
   color: var(--color-button-white);
 }
 
 .input {
-  width: 100%;
-  padding: 7px 10px;
-  margin: 10px 0;
+  width: 80%;
+  height: 60px;
+  font-size: 2rem;
 }
 
 .formCreate {

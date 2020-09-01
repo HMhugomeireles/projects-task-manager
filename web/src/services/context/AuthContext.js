@@ -1,30 +1,52 @@
 import React from "react";
-import { INITIAL_USERS, UserActionsTypes } from "../constants/users";
-import { UsersReducer } from "./../reducers/users";
-import { StatusContext } from "./StatusContext";
-import { AppStatusActionsTypes } from "../constants/status";
+//import { useQuery, useMutation } from "react-query";
+
+import UserApi from "../api/Users";
+
+import { INITIAL_USERS } from "../constants/users";
+//import { StatusContext } from "./StatusContext";
+//import { AppStatusActionsTypes } from "../constants/status";
 
 export const AuthenticationContext = React.createContext(null);
 
 export function AuthenticationProvider({ children }) {
-  const { statusDispatch } = React.useContext(StatusContext);
-  const [user, userDispatch] = React.useReducer(UsersReducer, INITIAL_USERS);
+  //const { statusDispatch } = React.useContext(StatusContext);
+  const initialState = JSON.parse(localStorage.getItem("log")) || INITIAL_USERS;
+  const [user, setUser] = React.useState(initialState);
 
-  function authenticationUser(user) {
-    //statusDispatch({ type: AppStatusActionsTypes.LOADING });
-    userDispatch({ type: UserActionsTypes.LOGIN, payload: user });
+  async function authenticationUser(userInput) {
+    const response = await UserApi.login({ ...userInput });
+
+    // TODO validation of response
+    console.log("test", response);
+
+    if (response.status !== 202) {
+      return "Error";
+    }
+
+    const userState = {
+      ...user,
+      user: response.data.user.username,
+      token: response.data.token,
+      isLogged: true,
+      isTokenSecure: true,
+    };
+
+    setUser(userState);
+    // need check this
+    localStorage.setItem("log", JSON.stringify(userState));
+
+    return "Success";
   }
 
   function createUser(user) {
-    userDispatch({ type: UserActionsTypes.CREATE_ACCOUNT }, user);
+    //userDispatch({ type: UserActionsTypes.CREATE_ACCOUNT }, user);
   }
 
   function isAuthenticated() {
     if (user.isLogged) return true;
     return false;
   }
-
-  React.useEffect(() => {}, [user]);
 
   return (
     <AuthenticationContext.Provider

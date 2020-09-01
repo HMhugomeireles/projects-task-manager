@@ -1,11 +1,11 @@
 import React from "react";
 
-import Form from "../Form";
-import Input from "../Input";
-import Button from "../Button";
+import Form from "../../Form";
+import Input from "../../Input";
+import Button from "../../Button";
 
 import login from "./login.module.css";
-import Message from "./../Message";
+import Message from "../../Message";
 
 function Login(props) {
   return (

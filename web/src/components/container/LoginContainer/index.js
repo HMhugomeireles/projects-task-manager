@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { AuthenticationContext } from "../../../services/context/AuthContext";
 
-import Login from "../../ui/Login";
+import Login from "../../ui/Composed/Login";
 
 function LoginContainer() {
   const { authenticationUser } = React.useContext(AuthenticationContext);
@@ -21,12 +21,29 @@ function LoginContainer() {
 
     // TODO need todo input validation
 
-    authenticationUser(loginForm);
+    const result = await authenticationUser(loginForm);
+
+    if (result === "Success") {
+      history.push("/dashboard");
+      return;
+    }
+
+    setMessageError(result);
   }
 
   function handleInputChange(event) {
     setLoginForm({ ...loginForm, [event.target.name]: event.target.value });
   }
+
+  React.useEffect(() => {
+    let removeMessage;
+    if (messageError !== "") {
+      removeMessage = setTimeout(() => {
+        setMessageError("");
+      }, 4000);
+    }
+    return () => clearTimeout(removeMessage);
+  }, [messageError, setMessageError]);
 
   return (
     <Login
