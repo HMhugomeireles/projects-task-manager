@@ -7,6 +7,15 @@
   justify-content: center;
 }
 
+.brandHeader {
+  width: 320px;
+  margin: 15px 0;
+}
+
+.brandP {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
 
 @media screen and (min-width: 1000px) {
   .container {

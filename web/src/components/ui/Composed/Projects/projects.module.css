@@ -15,3 +15,16 @@
   color: var(--color-dark-grey);
   margin: 2px 0;
 }
+
+.projectDetails {
+  font-size: .975rem;
+  margin: 8px;
+}
+
+.projectDetails>span {
+  width: 100%;
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-light-grey);
+}

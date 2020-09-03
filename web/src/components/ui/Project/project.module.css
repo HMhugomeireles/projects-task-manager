@@ -1,5 +1,5 @@
 .container {
-  width: 320px;
+  width: 210px;
   max-width: 100%;
 
   margin: 10px;
@@ -7,6 +7,14 @@
 
   background: var(--color-mid-grey);
   box-shadow: 1px 2px 11px var(--color-dark-hard-grey);
+
+  cursor: pointer;
+  user-select: none;
+  transition: .3s ease-in;
+}
+
+.container:hover {
+  transform: scale(1.1);
 }
 
 .containerHeader {
@@ -18,15 +26,22 @@
   padding: 15px;
   border-radius: 15px 15px 0 0;
   text-transform: capitalize;
+  text-decoration: underline var(--color-brand);
+  text-decoration-skip: ink;
+  font-family: "Playfair Display",
+    serif;
 }
 
 .containerBody {
   font-size: 0.975rem;
   padding: 10px;
-  margin: 10px;
   color: var(--color-light-mid-grey);
 }
 
 .containerBody>ul {
   list-style: none;
+}
+
+.link {
+  text-decoration: none;
 }

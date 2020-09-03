@@ -3,10 +3,10 @@ import React from "react";
 import Project from "../../Project";
 import Wrapper from "../../Wrapper";
 import NewProject from "../../NewProject";
-import Task from "../../Task";
 
 import projectsStyle from "./projects.module.css";
 import Loading from "./../../Loading/index";
+import UtilDates from "../../../../util/Dates";
 
 function Projects(props) {
   return (
@@ -29,25 +29,21 @@ function Projects(props) {
           ) : (
             props.projects.items.map((project) => (
               <li key={project._id}>
-                <Project projectName={project.projectName}>
-                  <ul>
-                    {project.tasks.map((task, index) => (
-                      <li className={projectsStyle.taskRow} key={task._id}>
-                        <Task
-                          task={{
-                            description: task.description,
-                            id: task._id,
-                          }}
-                          isChecked={false}
-                          actions={{
-                            handleCheck: props.projects.actions.handleCheck,
-                            handleCheckboxChange:
-                              props.projects.actions.handleCheckboxChange,
-                          }}
-                        />
-                      </li>
-                    ))}
-                  </ul>
+                <Project
+                  projectId={project._id}
+                  projectName={project.projectName}
+                >
+                  <div className={projectsStyle.projectDetails}>
+                    <span>Total Tasks</span> 0/{project.tasks.length}
+                  </div>
+                  <div className={projectsStyle.projectDetails}>
+                    <span>Create Date:</span>{" "}
+                    {UtilDates.formateDate(project.createdAt)}
+                  </div>
+                  <div className={projectsStyle.projectDetails}>
+                    <span>Last update Date:</span>{" "}
+                    {UtilDates.formateDate(project.updatedAt)}
+                  </div>
                 </Project>
               </li>
             ))

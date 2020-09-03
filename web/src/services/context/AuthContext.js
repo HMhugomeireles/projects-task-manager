@@ -11,6 +11,8 @@ export const AuthenticationContext = React.createContext(null);
 
 export function AuthenticationProvider({ children }) {
   //const { statusDispatch } = React.useContext(StatusContext);
+
+  // TODO need check this for end the token is not valid
   const initialState = JSON.parse(localStorage.getItem("log")) || INITIAL_USERS;
   const [user, setUser] = React.useState(initialState);
 
