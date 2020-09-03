@@ -8,14 +8,11 @@ const ProjectSchema = new mongoose.Schema(
       required: true,
     },
     projectName: { type: mongoose.Schema.Types.String, required: true },
+    description: { type: mongoose.Schema.Types.String, required: true },
     tasks: [
       {
-        description: { type: mongoose.Schema.Types.String, required: true },
-        createDate: {
-          type: mongoose.Schema.Types.Number,
-          default: Date.now,
-        },
-        finishDate: { type: mongoose.Schema.Types.Number },
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Tasks",
       },
     ],
   },
