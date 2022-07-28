@@ -1,8 +1,8 @@
-import React from "react";
+import React, { PropsWithChildren } from "react";
 
 import layout from "./Layout.module.css";
 
-function Layout({ children }) {
+export function Layout({ children }: PropsWithChildren) {
   return (
     <div className={layout.container}>
       {children}
@@ -11,4 +11,3 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;

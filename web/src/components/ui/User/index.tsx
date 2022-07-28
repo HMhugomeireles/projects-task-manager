@@ -1,9 +1,16 @@
 import React from "react";
 
-import Avatar from "../Avatar";
+import { Avatar } from "../Avatar";
 import user from "./user.module.css";
 
-export default function User(props) {
+type UserPropsType = {
+  userDetails: {
+    username: string;
+    avatar: string;
+  }
+}
+
+export function User(props: UserPropsType) {
   return (
     <div className={user.container}>
       <div>{props.userDetails.username}</div>

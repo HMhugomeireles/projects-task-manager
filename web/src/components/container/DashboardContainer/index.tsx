@@ -1,12 +1,12 @@
 import React from "react";
 
-import ProjectsApi from "../../../services/api/Projects";
+import { ProjectsApi } from "../../../services/api/Projects";
 
-import { AuthenticationContext } from "./../../../services/context/AuthContext";
-import Projects from "./../../ui/Composed/Projects";
-import Header from "./../../ui/Composed/Header";
+import { AuthenticationContext } from "../../../services/context/AuthContext";
+import Header from "../../ui/Composed/Header";
+import { Projects } from "../../ui/Composed/Projects";
 
-function DashboardContainer() {
+export function DashboardContainer(): JSX.Element {
   const { user } = React.useContext(AuthenticationContext);
 
   const [dataInput, setDataInput] = React.useState({
@@ -68,5 +68,3 @@ function DashboardContainer() {
     </div>
   );
 }
-
-export default DashboardContainer;

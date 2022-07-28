@@ -1,13 +1,29 @@
 import React from "react";
 
-import Form from "../../Form";
-import Input from "../../Input";
-import Button from "../../Button";
+import { Button } from "../../Button";
+import { Form } from "../../Form";
+import { Input } from "../../Input";
 
+import { Message } from "../../Message/index";
 import createAccount from "./createAccount.module.css";
-import Message from "../../Message/index";
 
-function CreateAccount(props) {
+type CreateAccountPropsType = {
+  actions: {
+    handleSubmit(): void;
+    handleInputChange: React.ChangeEventHandler<HTMLInputElement>
+  }
+  dataForm: {
+    username: string;
+    password: string;
+    repeatPassword: string;
+  }
+  status: {
+    message: string;
+    type: string;
+  }
+}
+
+export function CreateAccount(props: CreateAccountPropsType) {
   return (
     <Form handleSubmit={props.actions.handleSubmit}>
       <h2 style={{ textAlign: "center" }}>Create Account</h2>
@@ -31,7 +47,7 @@ function CreateAccount(props) {
           name: "password",
           value: props.dataForm.password,
           placeholder: "Password",
-          autocomplete: "new-password",
+          //autocomplete: "new-password",
           actions: {
             handleInputChange: props.actions.handleInputChange,
           },
@@ -45,7 +61,7 @@ function CreateAccount(props) {
           name: "repeatPassword",
           value: props.dataForm.repeatPassword,
           placeholder: "Repeat password",
-          autocomplete: "new-password",
+          //autocomplete: "new-password",
           actions: {
             handleInputChange: props.actions.handleInputChange,
           },
@@ -64,5 +80,3 @@ function CreateAccount(props) {
     </Form>
   );
 }
-
-export default CreateAccount;

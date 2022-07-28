@@ -1,14 +1,30 @@
 import React from "react";
 
-import Project from "../../Project";
-import Wrapper from "../../Wrapper";
-import NewProject from "../../NewProject";
+import { NewProject } from "../../NewProject";
+import { Project } from "../../Project";
+import { Wrapper } from "../../Wrapper";
 
+import { UtilDates } from "../../../../util/Dates";
+import { Loading } from "../../Loading/index";
 import projectsStyle from "./projects.module.css";
-import Loading from "./../../Loading/index";
-import UtilDates from "../../../../util/Dates";
 
-function Projects(props) {
+type ProjectsPropsType = {
+  newProject: {
+    actions: {
+      handleSubmitNewProject: React.FormEventHandler<HTMLFormElement>;
+      handleInputChange: React.ChangeEventHandler<HTMLInputElement>;
+      
+    }
+    dataInput: {
+      title: string;
+    }
+  }
+  projects: {
+    items: [{ _id: string, projectName: string, createdAt: string, updatedAt: string, tasks: []}]
+  }
+}
+
+export function Projects(props: ProjectsPropsType) {
   return (
     <section>
       <Wrapper>
@@ -53,5 +69,3 @@ function Projects(props) {
     </section>
   );
 }
-
-export default Projects;

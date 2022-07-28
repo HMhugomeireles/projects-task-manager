@@ -1,15 +1,25 @@
 import React from "react";
 
-import From from "../Form";
-import Input from "../Input";
-import Button from "../Button";
+import { Button } from "../Button";
+import { Form } from "../Form";
+import { Input } from "../Input";
 
 import newproject from "./newproject.module.css";
 
-function NewProject(props) {
+type NewProjectPropsType = {
+  dataInput: {
+    title: string;
+  }
+  actions: {
+    handleSubmitNewProject: React.FormEventHandler<HTMLFormElement>;
+    handleInputChange: React.ChangeEventHandler<HTMLInputElement>
+  }
+}
+
+export function NewProject(props: NewProjectPropsType) {
   return (
     <div className={newproject.container}>
-      <From
+      <Form
         handleSubmit={props.actions.handleSubmitNewProject}
         boxStyles={newproject.formCreate}
       >
@@ -32,9 +42,7 @@ function NewProject(props) {
             Create Project
           </Button>
         </div>
-      </From>
+      </Form>
     </div>
   );
 }
-
-export default NewProject;

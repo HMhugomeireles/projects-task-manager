@@ -1,13 +1,25 @@
 import React from "react";
 
-import Form from "../../Form";
-import Input from "../../Input";
-import Button from "../../Button";
+import { Button } from "../../Button";
+import { Form } from "../../Form";
+import { Input } from "../../Input";
 
+import { Message } from "../../Message";
 import login from "./login.module.css";
-import Message from "../../Message";
 
-function Login(props) {
+type LoginPropsType = {
+  actions: {
+    handleLogin(): void;
+    handleInputChange: React.ChangeEventHandler<HTMLInputElement>
+  }
+  dataForm: {
+    username: string;
+    password: string;
+  }
+  errorMessage: string;
+}
+
+function Login(props: LoginPropsType) {
   return (
     <Form handleSubmit={props.actions.handleLogin}>
       <h2 style={{ textAlign: "center" }}>Login</h2>
@@ -31,7 +43,7 @@ function Login(props) {
           name: "password",
           value: props.dataForm.password,
           placeholder: "Password",
-          autocomplete: "current-password",
+          //autocomplete: "current-password",
           actions: {
             handleInputChange: props.actions.handleInputChange,
           },

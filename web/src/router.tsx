@@ -1,13 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
+import ProtectRoute from "./helpers/protectRoute";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
-import Project from "./pages/Project";
 import Notfound from "./pages/Notfound";
-import ProtectRoute from "./helpers/protectRoute";
+import Project from "./pages/Project";
 
-function RouterHandler() {
+export function RouterHandler() {
   return (
     <Router>
       <Switch>
@@ -27,5 +27,3 @@ function RouterHandler() {
     </Router>
   );
 }
-
-export default RouterHandler;

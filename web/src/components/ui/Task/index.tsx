@@ -1,7 +1,19 @@
 import React from "react";
 import task from "./task.module.css";
 
-export default function Task(props) {
+type TaskPropsType = {
+  isChecked?: boolean;
+  actions: {
+    handleCheck(id: string): void;
+    handleCheckboxChange: React.ChangeEventHandler<HTMLInputElement>
+  }
+  task: {
+    id: string;
+    description: string;
+  }
+}
+
+export function Task(props: TaskPropsType) {
   return (
     <label
       onClick={() => props.actions.handleCheck(props.task.id)}

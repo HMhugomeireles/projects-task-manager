@@ -1,8 +1,13 @@
-import React from "react";
-import project from "./project.module.css";
+import React, { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
+import project from "./project.module.css";
 
-function Project({ children, projectName, projectId }) {
+type ProjectPropsType = PropsWithChildren<{
+  projectName: string;
+  projectId: string;
+}>
+
+export function Project({ children, projectName, projectId }: ProjectPropsType) {
   return (
     <Link to={`/dashboard/project/${projectId}`} className={project.link}>
       <div className={project.container}>
@@ -13,4 +18,3 @@ function Project({ children, projectName, projectId }) {
   );
 }
 
-export default Project;

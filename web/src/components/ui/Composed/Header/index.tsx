@@ -1,7 +1,7 @@
 import React from "react";
 
-import Brand from "./../../Brand";
-import User from "./../../User";
+import { Brand } from "../../Brand";
+import { User } from "../../User";
 
 import header from "./header.module.css";
 

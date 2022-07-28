@@ -44,3 +44,20 @@ http://localhost:4444
 ```
 
 http://localhost:3000
+
+
+# Migration
+
+- [x] Typescript all files
+      - [ ] create all backend types
+      - [ ] create all frontend types
+- [ ] migrate the require to import
+- [ ] config eslint, prettier ...
+- [ ] Run on Docker
+- [ ] Docker composer
+- [ ] use react-dom-router
+- [ ] unit test on frontend
+- [ ] unit test on backend
+- [ ] integration testing
+- [ ] migrate backend into clean architecture
+- [ ] migrate frontend into clean architecture

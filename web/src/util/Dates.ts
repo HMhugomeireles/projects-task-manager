@@ -1,5 +1,5 @@
-const UtilDates = {
-  formateDate(dateToFormate) {
+export const UtilDates = {
+  formateDate(dateToFormate: any) {
     const options = { month: "long", day: "numeric", year: "numeric" };
     const date = new Date(dateToFormate);
     const americanDate = new Intl.DateTimeFormat("en-US", options).format(date);
@@ -8,4 +8,3 @@ const UtilDates = {
   },
 };
 
-export default UtilDates;

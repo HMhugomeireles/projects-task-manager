@@ -1,10 +1,10 @@
-require("dotenv").config();
-const express = require("express");
-const mongoModule = require("./loaders/mongoose");
-const expressModule = require("./loaders/expressModules");
-const api = require("./loaders/api");
-const ErrorHandler = require("./loaders/errors");
+import dotenv from 'dotenv';
+import express from 'express';
+import { api } from './loaders/api';
+import { ErrorHandler } from './loaders/errors';
+import { expressModule } from './loaders/expressModules';
 
+dotenv.config()
 mongoModule();
 
 const app = express();
