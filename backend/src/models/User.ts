@@ -1,23 +1,27 @@
-const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+import { compare, hashSync } from 'bcryptjs';
+import { model, Schema } from 'mongoose';
 
-const UserSchema = new mongoose.Schema(
-  {
-    username: { type: mongoose.Schema.Types.String, required: true },
-    password: { type: mongoose.Schema.Types.String, required: true },
-  },
-  {
-    timestamps: true,
-  }
-);
+interface IUser {
+  username: string;
+  password: string;
+}
+
+const UserSchema = new Schema<IUser>({
+  username: { type: mongoose.Schema.Types.String, required: true },
+  password: { type: mongoose.Schema.Types.String, required: true },
+},{
+  timestamps: true,
+});
 
 UserSchema.pre("save", function (next) {
-  this.password = bcrypt.hashSync(this.password, 10);
+  this.password = hashSync(this.password, 10);
   next();
 });
 
-UserSchema.methods.comparePassword = (passPlanText, hash) => {
-  return bcrypt.compare(passPlanText, hash);
+UserSchema.methods.comparePassword = (passPlanText: string, hash: string) => {
+  return compare(passPlanText, hash);
 };
 
-module.exports = mongoose.model("Users", UserSchema);
+const UserModel = model<IUser>("Users", UserSchema)
+
+export { UserModel, IUser };
