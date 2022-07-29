@@ -1,8 +1,7 @@
-const express = require("express");
+import { Router } from "express";
+import { ProjectController } from '../../Controllers/ProjectController';
 
-const ProjectController = require("../../Controllers/ProjectController");
-
-const ProjectRouter = new express.Router();
+const ProjectRouter = Router();
 
 /**
  * Project
@@ -38,4 +37,5 @@ ProjectRouter.delete(
   ProjectController.deleteProjectTask
 );
 
-module.exports = ProjectRouter;
+export { ProjectRouter };
+

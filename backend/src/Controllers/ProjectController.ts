@@ -1,84 +1,105 @@
-const ProjectService = require("../Service/ProjectService");
-const { StatusCodes } = require("http-status-codes");
+import { NextFunction, Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+import { RequestType } from 'middlewares/auth/Auth';
+import { ProjectService } from 'Service/ProjectService';
 
-module.exports = {
-  async getUserProject(request, response, next) {
-    try {
-      const { userId, newToken } = request;
 
-      const projects = await ProjectService.getAllProject({ userId });
+async function getUserProject(request: RequestType, response: Response, next: NextFunction) {
+  try {
+    const { userId, newToken } = request;
 
-      response.status(StatusCodes.OK).json({
-        projects,
-        newToken,
-      });
-    } catch (error) {
-      next();
-    }
-  },
+    if (!userId) throw Error('UserId undefined');
+    const projects = await ProjectService.getAllProject({ userId });
 
-  async createUserProject(request, response, next) {
-    try {
-      const { userId, newToken } = request;
-      const project = request.body;
+    response.status(StatusCodes.OK).json({
+      projects,
+      newToken,
+    });
+  } catch (error) {
+    next();
+  }
+}
 
-      const createResult = await ProjectService.createProject(
-        { userId },
-        project
-      );
+async function createUserProject(request: RequestType, response: Response, next: NextFunction) {
+  try {
+    const { userId, newToken } = request;
+    const project = request.body;
 
-      if (!createResult) {
-        response.status(StatusCodes.NOT_ACCEPTABLE).json({
-          error: "Try again.",
-          newToken,
-        });
-      }
+    if (!userId) throw Error('UserId undefined');
 
-      response.status(StatusCodes.OK).json({
-        createResult,
-        newToken,
-      });
-    } catch (error) {
-      next();
-    }
-  },
-
-  async updateUserProject(request, response, next) {},
-
-  async deleteUserProject(request, response, next) {},
-
-  async getProjectTask(request, response, next) {},
-
-  async createProjectTask(request, response, next) {
-    try {
-      const { userId, newToken } = request;
-      const task = request.body;
-      const projectId = request.params.projectId;
-
-      const createResult = await ProjectService.createTask(
+    const createResult = await ProjectService.createProject(
+      {
         userId,
-        projectId,
-        task
-      );
+        username: '',
+        password: ''
+      },
+      project
+    );
 
-      if (!createResult) {
-        response.status(StatusCodes.NOT_ACCEPTABLE).json({
-          error: "Same error happened, Try again.",
-          newToken,
-        });
-        return;
-      }
-
-      response.status(StatusCodes.OK).json({
-        createResult,
+    if (!createResult) {
+      response.status(StatusCodes.NOT_ACCEPTABLE).json({
+        error: "Try again.",
         newToken,
       });
-    } catch (error) {
-      next();
     }
-  },
 
-  async updateProjectTask(request, response, next) {},
+    response.status(StatusCodes.OK).json({
+      createResult,
+      newToken,
+    });
+  } catch (error) {
+    next();
+  }
+}
 
-  async deleteProjectTask(request, response, next) {},
-};
+async function updateUserProject(request: Request, response: Response, next: NextFunction) {}
+async function deleteUserProject(request: Request, response: Response, next: NextFunction) {}
+async function getProjectTask(request: Request, response: Response, next: NextFunction) {}
+
+async function createProjectTask(request: RequestType, response: Response, next: NextFunction) {
+  try {
+    const { userId, newToken } = request;
+    const task = request.body;
+    const projectId = request.params.projectId;
+
+    if (!userId) throw Error('UserId undefined');
+
+    const createResult = await ProjectService.createTask(
+      userId,
+      projectId,
+      task
+    );
+
+    if (!createResult) {
+      response.status(StatusCodes.NOT_ACCEPTABLE).json({
+        error: "Same error happened, Try again.",
+        newToken,
+      });
+      return;
+    }
+
+    response.status(StatusCodes.OK).json({
+      createResult,
+      newToken,
+    });
+  } catch (error) {
+    next();
+  }
+}
+
+async function updateProjectTask(request: Request, response: Response, next: NextFunction) {}
+async function deleteProjectTask(request: Request, response: Response, next: NextFunction) {}
+
+const ProjectController = {
+  getUserProject,
+  createUserProject,
+  updateUserProject,
+  deleteUserProject,
+  getProjectTask,
+  createProjectTask,
+  updateProjectTask,
+  deleteProjectTask
+}
+
+export { ProjectController };
+

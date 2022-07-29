@@ -1,7 +1,8 @@
 import { compare, hashSync } from 'bcryptjs';
-import { model, Schema } from 'mongoose';
+import { Document, model, Schema } from 'mongoose';
 
-interface IUser {
+interface IUser extends Document {
+  userId: string;
   username: string;
   password: string;
 }
@@ -25,3 +26,4 @@ UserSchema.methods.comparePassword = (passPlanText: string, hash: string) => {
 const UserModel = model<IUser>("Users", UserSchema)
 
 export { UserModel, IUser };
+

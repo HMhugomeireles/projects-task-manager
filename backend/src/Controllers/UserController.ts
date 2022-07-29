@@ -1,61 +1,59 @@
-const { StatusCodes } = require("http-status-codes");
-const UserService = require("../Service/UserService");
+import { NextFunction, Request, Response } from 'express';
+import { StatusCodes } from 'http-status-codes';
+import { UserService } from 'Service/UserService';
 
-module.exports = {
-  /**
-   *
-   */
-  async login(request, response, next) {
-    try {
-      const user = request.body;
-      // TODO validation user
+async function login(request: Request, response: Response, next: NextFunction) {
+  try {
+    const user = request.body;
+    // TODO validation user
 
-      const token = await UserService.login(user);
+    const token = await UserService.login(user);
 
-      if (token) {
-        response.status(StatusCodes.ACCEPTED).json({
-          user: {
-            username: user.username,
-          },
-          token: token,
-        });
-        return;
-      }
-
-      response.status(StatusCodes.OK).json({
+    if (token) {
+      response.status(StatusCodes.ACCEPTED).json({
         user: {
           username: user.username,
-          password: "???",
         },
-        error: "Username and Password are wrong",
+        token: token,
       });
-    } catch (error) {
-      next();
+      return;
     }
-  },
 
-  /**
-   *
-   */
-  async registration(request, response, next) {
-    try {
-      const user = request.body;
-      // TODO validation user
+    response.status(StatusCodes.OK).json({
+      user: {
+        username: user.username,
+        password: "???",
+      },
+      error: "Username and Password are wrong",
+    });
+  } catch (error) {
+    next();
+  }
+}
 
-      const creationResult = await UserService.createUserAccount(user);
+async function registration(request: Request, response: Response, next: NextFunction) {
+  try {
+    const user = request.body;
+    // TODO validation user
 
-      if (creationResult) {
-        response.status(StatusCodes.CREATED).json({
-          user: creationResult,
-        });
-        return;
-      }
+    const creationResult = await UserService.createUserAccount(user);
 
-      response.status(StatusCodes.OK).json({
-        error: "User not available.",
+    if (creationResult) {
+      response.status(StatusCodes.CREATED).json({
+        user: creationResult,
       });
-    } catch (error) {
-      next();
+      return;
     }
-  },
-};
+
+    response.status(StatusCodes.OK).json({
+      error: "User not available.",
+    });
+  } catch (error) {
+    next();
+  }
+}
+
+export const UserController = {
+  login,
+  registration
+}

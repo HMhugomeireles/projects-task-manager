@@ -1,7 +1,8 @@
-import { model, Schema } from 'mongoose';
+import { Document, model, Schema } from 'mongoose';
 import { ITask } from './Tasks';
 
-interface IProject {
+interface IProject extends Document {
+  projectId: string;
   userId: string;
   projectName: string;
   description: string;

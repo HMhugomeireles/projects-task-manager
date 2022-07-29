@@ -1,5 +1,4 @@
-function ErrorHandler(error, request, response) {
+
+export function ErrorHandler(error: any) {
   console.log("Server Error.", error);
 }
-
-module.exports = ErrorHandler;

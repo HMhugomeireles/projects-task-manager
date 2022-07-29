@@ -1,126 +1,123 @@
-const ProjectModel = require("../models/Projects");
+import { IProject, ProjectModel } from 'models/Projects';
+import { ITask } from 'models/Tasks';
+import { IUser } from 'models/User';
 
-module.exports = {
-  /**
-   *
-   */
-  async getAllProject({ userId }) {
-    try {
-      const result = await ProjectModel.find({ userId: userId });
+type GetAllProjectType = {
+  userId: string
+}
 
-      return result;
-    } catch (error) {
-      console.error("Error on getAllProject.", error);
-      return;
-    }
-  },
 
-  /**
-   *
-   */
-  async createProject(user, project) {
-    try {
-      const result = await ProjectModel.create({
-        userId: user.userId,
-        projectName: project.projectName,
-        task: [],
-      });
+async function getAllProject({ userId }: GetAllProjectType) {
+  try {
+    const result = await ProjectModel.find({ userId: userId });
 
-      return result;
-    } catch (error) {
-      console.error("Error on createProject.", error);
-      return;
-    }
-  },
+    return result;
+  } catch (error) {
+    console.error("Error on getAllProject.", error);
+    return;
+  }
+}
 
-  /**
-   *
-   */
-  async updateProject(user, project) {
-    try {
-      const projectFound = await ProjectModel.find({
-        userId: user.userId,
-        _id: project.projectId,
-      });
+async function createProject(user: IUser, project: IProject) {
+  try {
+    const result = await ProjectModel.create({
+      userId: user.userId,
+      projectName: project.projectName,
+      task: [],
+    });
 
-      projectFound.projectName = project.projectName;
+    return result;
+  } catch (error) {
+    console.error("Error on createProject.", error);
+    return;
+  }
+}
 
-      const projectSaved = await projectFound.save();
+async function updateProject(user: IUser, project: IProject) {
+  try {
+    const projectFound = await ProjectModel.find({
+      userId: user.userId,
+      _id: project.projectId,
+    });
 
-      return projectSaved;
-    } catch (error) {
-      console.error("Error on updateProject.", error);
-      return;
-    }
-  },
+    projectFound.projectName = project.projectName;
 
-  /**
-   *
-   */
-  async deleteProject(user, project) {
-    try {
-      const projectFound = await ProjectModel.find({
-        userId: user.userId,
-        _id: project.projectId,
-      });
+    const projectSaved = await projectFound.save();
 
-      await projectFound.save();
+    return projectSaved;
+  } catch (error) {
+    console.error("Error on updateProject.", error);
+    return;
+  }
+}
 
-      return true;
-    } catch (error) {
-      console.error("Error on updateProject.", error);
-      return false;
-    }
-  },
+async function deleteProject(user: IUser, project: IProject) {
+  try {
+    const projectFound = await ProjectModel.find({
+      userId: user.userId,
+      _id: project.projectId,
+    });
 
-  /**
-   *
-   */
-  async createTask(userId, projectId, task) {
-    try {
-      const projectFound = await ProjectModel.findOne({
-        _id: projectId,
-        userId: userId,
-      });
+    await projectFound.save();
 
-      projectFound.tasks.push(task);
+    return true;
+  } catch (error) {
+    console.error("Error on updateProject.", error);
+    return false;
+  }
+}
 
-      const projectTaskSaved = await projectFound.save();
+async function createTask(userId: string, projectId: string, task: ITask) {
+  try {
+    const projectFound = await ProjectModel.findOne({
+      _id: projectId,
+      userId: userId,
+    });
 
-      return projectTaskSaved;
-    } catch (error) {
-      console.error("Error on createTask.", error);
-      return undefined;
-    }
-  },
+    projectFound.tasks.push(task);
 
-  /**
-   *
-   */
-  async updateTask(userId, projectId, task) {
-    try {
-      const projectFound = await ProjectModel.find({
-        _id: projectId,
-        userId: userId,
-      });
+    const projectTaskSaved = await projectFound.save();
 
-      const { tasks } = projectFound;
+    return projectTaskSaved;
+  } catch (error) {
+    console.error("Error on createTask.", error);
+    return undefined;
+  }
+}
 
-      const taskIndex = tasks.findIndex(
-        (taskItem) => taskItem.description === task.description
-      );
+async function updateTask(userId: string, projectId: string, task: ITask) {
+  try {
+    const projectFound = await ProjectModel.find({
+      _id: projectId,
+      userId: userId,
+    });
 
-      projectFound.tasks[taskIndex] = {
-        ...projectFound.tasks[taskIndex],
-        ...task,
-      };
+    const { tasks } = projectFound;
 
-      const projectSaved = await projectFound.save();
+    const taskIndex = tasks.findIndex(
+      (taskItem) => taskItem.description === task.description
+    );
 
-      return projectSaved;
-    } catch (error) {
-      console.error("Error on updateTask.", error);
-      return;
-    }
-  },
-};
+    projectFound.tasks[taskIndex] = {
+      ...projectFound.tasks[taskIndex],
+      ...task,
+    };
+
+    const projectSaved = await projectFound.save();
+
+    return projectSaved;
+  } catch (error) {
+    console.error("Error on updateTask.", error);
+    return;
+  }
+}
+
+
+export const ProjectService = {
+  getAllProject,
+  createProject,
+  updateProject,
+  deleteProject,
+  createTask,
+  updateTask
+}

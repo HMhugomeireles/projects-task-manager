@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import { api } from './loaders/api';
+import { apiModule } from './loaders/api';
 import { ErrorHandler } from './loaders/errors';
 import { expressModule } from './loaders/expressModules';
 
@@ -12,7 +12,7 @@ const SERVER_PORT = process.env.PORT || 4444;
 
 expressModule({ app });
 // Routes
-api({ app });
+apiModule({ app });
 
 app.use(ErrorHandler);
 
