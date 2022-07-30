@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  mongo-db:
+    container_name: mongo-db
+    image: mongo
+    restart: unless-stopped
+    ports:
+      - 27025:27017
+    volumes:
+      - /_data/mongo-db:/data/db
+
+  backend-app:
+    image: vaynard/ts-node:14
+    working_dir: /app
+    depends_on:
+      - mongo-db
+    container_name: frontend-hkgi
+    restart: unless-stopped
+    command: 'npm run start:dev'
+    ports:
+      - 3102:3102
+    tty: true
+    user: '1000'
+    volumes:
+      - /_data/backend-app:/data/backend
+     
+  web-app:
+    image: vaynard/ts-node:14
+    working_dir: /web
+    depends_on:
+      - backend-app
+    container_name: 
+    restart: unless-stopped
+    command: 'npm run start:dev'
+    ports:
+      - 3101:3101
+    tty: true
+    user: '1000'
+    volumes:
+      - /_data/web-app:/data/web
