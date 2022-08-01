@@ -51,8 +51,10 @@ http://localhost:3000
 - [x] Typescript all files
       - [ ] create all backend types
       - [ ] create all frontend types
-- [ ] migrate the require to import
+- [x] migrate the require to import
 - [ ] config eslint, prettier ...
+      - [x] backend
+      - [ ] frontend
 - [ ] Run on Docker
 - [ ] Docker composer
 - [ ] use react-dom-router

@@ -1,6 +1,6 @@
-const helmet = require("helmet");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+import helmet from 'helmet'
+import cors from 'cors'
+import bodyParser from 'bodyParser'
 
 function expressModules({ app }) {
   app.use(helmet());
