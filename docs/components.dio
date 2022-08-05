@@ -1,0 +1,28 @@
+<mxfile host="65bd71144e">
+    <diagram id="3uANzcz-I5nhciS9ijyE" name="Page-1">
+        <mxGraphModel dx="1041" dy="798" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Tasks" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="450" width="130" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Groups" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="320" width="130" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Projects" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="60" width="130" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Users" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="60" width="130" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="taskId&lt;br&gt;description&lt;br&gt;groupId&lt;br&gt;createAt&lt;br&gt;updateAt&lt;br&gt;userCreatorId&lt;br&gt;userWorkerId" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="85" width="90" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="userid&lt;br&gt;email&lt;br&gt;password&lt;br&gt;name&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="480" y="80" width="70" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
